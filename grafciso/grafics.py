@@ -509,7 +509,8 @@ while run:
 
     elif game_state == "inventario":
             screen.fill((80,0,0))
-
+            #if op="arma":
+             #   dibujar_texto()
 
     pygame.display.update()
     clock.tick(c.FPS)    
