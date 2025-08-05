@@ -167,28 +167,28 @@ font = pygame.font.SysFont(None, 36)  # Fuente para texto
 small_font = pygame.font.Font(None, 24)  # Fuente más pequeña para opciones
 
 #fondo de combate
-background = pygame.image.load("C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/fondos/fondo_1.png").convert()
+background = pygame.image.load("grafciso/assets/imagen/fondos/fondo_1.png").convert()
 # Escalar la imagen al tamaño de la pantalla
 background = pygame.transform.scale(background, ( c.ancho, c.alto))
 
 # Cargar animaciones del jugador
 animations = []
 for i in range(8):
-    img = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/character/player/sprite_{i}.png")
+    img = pygame.image.load(f"grafciso/assets/imagen/character/player/sprite_{i}.png")
     animations.append(scal_img(img, c.scala_p))
 
 # Cargar animaciones de armas
 animations_w = []
 for i in range(10):
-    image_sword = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/weapons/sprite_{i}.png")
+    image_sword = pygame.image.load(f"grafciso/assets/imagen/weapons/sprite_{i}.png")
     animations_w.append(scal_img(image_sword, c.scala_w))
 
 # Cargar animaciones de enemigos
 animations_e = []
-enemis = "C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/character/enemi"
+enemis = "grafciso/assets/imagen/character/enemi"
 for eni in name_dir(enemis):
     list_tep = []
-    ruta = f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/character/enemi/{eni}"
+    ruta = f"grafciso/assets/imagen/character/enemi/{eni}"
     for i in range(cont_elem(ruta)):
         image_enemi = pygame.image.load(f"{ruta}/sprite_{i}.png")
         list_tep.append(scal_img(image_enemi, c.scala_p))
@@ -323,7 +323,7 @@ while run:
                 
                 mostrar_stats = False
 
-            elif game_state == "combat_end":
+        elif game_state == "combat_end":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_e:  # También puedes usar pygame.K_SPACE
                         # Reiniciar combate

@@ -827,7 +827,7 @@ class Mago(Player):
 
         animations_w = []
         for i in range(10):
-            image_sword = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/weapons/sprite_{i}.png")
+            image_sword = pygame.image.load(f"grafciso/assets/imagen/weapons/sprite_{i}.png")
             animations_w.append(scal_img(image_sword, c.scala_w))
 
         arma_inicial = a.Arma_m(animations_w,lvl_P=1, suerte=self.suerte, damage=5, lvl=0, vel=0, rareza="normal")
@@ -857,7 +857,7 @@ class Templario(Player):
 
         animations_w = []
         for i in range(10):
-            image_sword = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/weapons/sprite_{i}.png")
+            image_sword = pygame.image.load(f"grafciso/assets/imagen/weapons/sprite_{i}.png")
             animations_w.append(scal_img(image_sword, c.scala_w))
 
         
@@ -932,7 +932,7 @@ class Cientifico(Player):
                          defensa, suerte, fe, mana, raza)
         animations_w = []
         for i in range(10):
-            image_sword = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/weapons/sprite_{i}.png")
+            image_sword = pygame.image.load(f"grafciso/assets/imagen/weapons/sprite_{i}.png")
             animations_w.append(scal_img(image_sword, c.scala_w))
 
         
@@ -1008,7 +1008,7 @@ class Samurai(Player):
                          defensa, suerte, fe, mana, raza)
         animations_w = []
         for i in range(10):
-            image_sword = pygame.image.load(f"C:/Users/giost/OneDrive/Escritorio/pygame/grafciso/assets/imagen/weapons/sprite_{i}.png")
+            image_sword = pygame.image.load(f"grafciso/assets/imagen/weapons/sprite_{i}.png")
             animations_w.append(scal_img(image_sword, c.scala_w))
 
         arma_inicial = a.Arma_s(animations_w,lvl_P=1, suerte=self.suerte, damage=5, lvl=0, vel=0, rareza="normal")
