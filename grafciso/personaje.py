@@ -81,7 +81,6 @@ class Player():
         interfaz.blit(image_flip,self.shape)
         #pygame.draw.rect(interfaz, (255,255,255),self.shape,1)
                          
-
     def move(self,dx,dy):
         if not self.in_combat:  # Solo mover si no está en combate
             if dx > 0:
@@ -105,8 +104,7 @@ class Player():
             self.levelup()
         
         return exp_ganada , exp_requerida_levelup
-    
-    
+       
     def get_mana(self):
         return self.mana
 
