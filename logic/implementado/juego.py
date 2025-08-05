@@ -63,8 +63,6 @@ def seleccionar_clase():
             print("Error: Debes ingresar SOLO números (1-5)")
 
 
-
-
 def dar_recompensa(jugador):
     recompensas = {
         cl.Guerrero: a.Arma_g,

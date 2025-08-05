@@ -49,8 +49,6 @@ def menu_clase_visual(fuente):
     dibujar_texto("4. Científico", 50, 230, fuente)
     dibujar_texto("5. Samurai", 50, 280, fuente)
 
-
-
 def levelear_enemigo(enemigo, piso_actual):
     incremento = max(1, int(r.gauss(0 + piso_actual*0.5, 3)))  
     incremento = min(10 + piso_actual, incremento)
@@ -221,6 +219,7 @@ clock = pygame.time.Clock()
 end=False
 exp_ga=0
 exp_re=0
+deamage_valu=0
 
 while run:
     # Manejo de eventos (unificado para ambos estados)
@@ -249,8 +248,8 @@ while run:
                 jugador.in_combat = False
 
             elif event.key == pygame.K_1:  # Atacar
-
-                if atac_act:  
+                damage_act=  True
+                if atac_act and event.key == pygame.K_1 :  
                     damage_act=  True
 
                     if jugador.velocidad_total() > enemigo.velocidad_total():
@@ -275,25 +274,25 @@ while run:
                 else:
                     atac_act = True
 
-            if not enemigo.vivo():
-                turno += 1
-                jugador.in_combat = False
-                exp_ga, exp_re = jugador.expc(enemigo.lvl)
-                end=True
-                game_state = "combat_end"
+                if not enemigo.vivo():
+                    turno += 1
+                    jugador.in_combat = False
+                    exp_ga, exp_re = jugador.expc(enemigo.lvl)
+                    end=True
+                    game_state = "combat_end"
 
 
-                                    
+                                        
 
-            if not jugador.vivo():    
-                    game_state="game over"
+                if not jugador.vivo():    
+                        game_state="game over"
 
 
-            elif event.key == pygame.K_2:  # Curar
+            elif event.key == pygame.K_2 and not damage_act:  # Curar
                 jugador.vida += 50
-            elif event.key == pygame.K_3:
-                jugador.ver_invent()
-            elif event.key == pygame.K_4:    
+            elif event.key == pygame.K_3 and not damage_act:
+                game_state = "inventario"
+            elif event.key == pygame.K_4 and not damage_act:    
                 mostrar_stats = True
             
                 # Sub-bucle para mantener los stats visibles
@@ -323,17 +322,18 @@ while run:
                 
                 mostrar_stats = False
 
-            elif game_state == "combat_end":
+        elif game_state == "combat_end":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_e:  # También puedes usar pygame.K_SPACE
                         # Reiniciar combate
+                        
                         enemigo = p.Enemy(300, 200, animations_e[0], screen)
                         levelear_enemigo(enemigo, turno)
                         game_state = "exploration"
                         enemigo.shape.x, enemigo.shape.y = 500, 500
                         jugador.shape.x, jugador.shape.y = 20, 20
                         end = damage_act = atac_act = False
-
+                        
 
 
 
@@ -506,6 +506,9 @@ while run:
 
         gameover = small_font.render(f"GAME OVER", True, (255, 255, 255))
         screen.blit(gameover, (c.ancho * 0.5, 100))
+
+    elif game_state == "inventario":
+            screen.fill((80,0,0))
 
 
     pygame.display.update()
