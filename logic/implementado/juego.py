@@ -1,7 +1,7 @@
 import classes as cl
 import random as r
 import armas as a
-import efectos as ef
+import grafciso.efectos as ef
 # Constantes
 MAX_PISOS = 100
 
@@ -61,6 +61,9 @@ def seleccionar_clase():
             print("Error: Debe ser entre 1 y 5")
         except ValueError:
             print("Error: Debes ingresar SOLO números (1-5)")
+
+
+
 
 def dar_recompensa(jugador):
     recompensas = {

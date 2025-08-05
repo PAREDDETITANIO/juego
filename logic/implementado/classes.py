@@ -1,7 +1,7 @@
 import armas as a
 import random as r
 import armaduras as ar
-import efectos as ef
+
 def ber(p):
     return r.choices([0, 1], weights=[1-p, p])[0]
 
